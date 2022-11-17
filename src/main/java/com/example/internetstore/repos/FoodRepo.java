@@ -20,16 +20,16 @@ public interface FoodRepo extends CrudRepository<Food, Long> {
 
     @Query("select distinct f " +
             "from Food f " +
-            "where f.name = :name " +
-            "or f.price >= ?1 " +
-            "or f.place = ?2 " +
-            "or f.type = ?3 " +
+            "where f.name = ?1 " +
+            "or f.price >= ?2 " +
+            "or f.place = ?3 " +
+            "or f.type = ?4 " +
             "order by f.name asc")
-    List<Food> findByAny(@Param("name")String name, float price, List<Place> places, List<FoodType> types);
+    List<Food> findByAny(String name, float price, List<Place> places, List<FoodType> types);
 
     @Query("select f " +
             "from Food f " +
-            "INNER JOIN FoodType ft on f.type = ft.name " +
+            "INNER JOIN FoodType ft on f.type.id = ft.id " +
             "where ft.name = ?1")
     List<Food> findFoodByFoodTypeName (String name);
 }

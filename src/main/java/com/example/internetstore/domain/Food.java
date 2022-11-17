@@ -1,5 +1,6 @@
 package com.example.internetstore.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,11 +19,13 @@ public class Food {
     private String name;
     @Column(length = 128)
     private String image;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "foodType_id")
     private FoodType type;
     @Column
     private float price;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "place_id")
     private Place place;
