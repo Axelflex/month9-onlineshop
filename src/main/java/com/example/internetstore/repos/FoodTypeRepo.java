@@ -14,8 +14,9 @@ public interface FoodTypeRepo extends CrudRepository<FoodType, Long> {
     List<FoodType> findByNameOrIdOrderByName(String name, int id);
 
     @Query("select ft from FoodType ft " +
-            "inner join Food f on ft.name = f.type")
-    List<FoodType> findByFoodType();
+            "inner join Food f on ft.name = f.type " +
+            "where f.type = ?1")
+    List<FoodType> findByFoodType(String type);
 
     @Query("select ft from FoodType ft " +
             "inner join Food f on ft.id = f.id " +
