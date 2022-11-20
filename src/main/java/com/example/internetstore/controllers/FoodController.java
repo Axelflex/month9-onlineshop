@@ -24,26 +24,26 @@ public class FoodController {
     public ResponseEntity<List<Food>> findByName(@RequestParam String food){
         return ResponseEntity.ok(service.findByName(food));
     }
-    @GetMapping("/findByPrice")
+    @GetMapping("/findByFoodPrice")
     public ResponseEntity<List<Food>> findByName(@RequestParam float price){
         return ResponseEntity.ok(service.findByPrice(price));
     }
-    @GetMapping("/findByPlace")
+    @GetMapping("/findByFoodPlace")
     public ResponseEntity<List<Food>> findByPlace(@RequestParam int placeId){
         return ResponseEntity.ok(service.findByPlace(placeId));
     }
-    @GetMapping("/findByTypeId{id}")
+    @GetMapping("/findByFoodTypeId{id}")
     public ResponseEntity<List<Food>> findByTypeId(@PathVariable int id){
         return ResponseEntity.ok(service.findByType(id));
     }
-    @GetMapping("/findByAny")
+    @GetMapping("/findByAnyFood")
     public ResponseEntity<List<Food>> findByAny(@RequestParam String foodName,
                                                 @RequestParam float price,
                                                 @RequestParam List<Place> places,
                                                 @RequestParam List<FoodType> types){
         return ResponseEntity.ok(service.findByAny(foodName, price, places, types));
     }
-    @GetMapping("/findByTypeName")
+    @GetMapping("/findFoodByFoodTypeName")
     public ResponseEntity<List<Food>> findByTypeName(@RequestParam String foodTypeName){
         return ResponseEntity.ok(service.findByTypeName(foodTypeName));
     }

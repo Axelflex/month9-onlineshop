@@ -13,7 +13,7 @@ import java.util.List;
 public class FoodTypeService {
     private final FoodTypeRepo foodTypeRepo;
 
-    public List<FoodType>findByName(String name){
+    public List<FoodType> findByName(String name){
         return foodTypeRepo.findByName(name);
     }
     public List<FoodType>findByNameOrderByNameAsc(String name){

@@ -29,7 +29,7 @@ public class UserController {
         return ResponseEntity.ok(service.getAllUsers());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/user{id}")
     public ResponseEntity<Optional<User>> getUser(@PathVariable Long id){
         return ResponseEntity.ok(service.getUser(id));
     }

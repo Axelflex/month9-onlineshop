@@ -14,15 +14,15 @@ import java.util.List;
 public class FoodTypeController {
     private final FoodTypeService service;
 
-    @GetMapping("/findByName")
+    @GetMapping("/findByFoodTypeName")
     public ResponseEntity<List<FoodType>> findByName(String name){
         return ResponseEntity.ok(service.findByName(name));
     }
-    @GetMapping("/findByNameOrdered")
+    @GetMapping("/findByFoodTypeNameOrdered")
     public ResponseEntity<List<FoodType>> findByNameOrdered(String name){
         return ResponseEntity.ok(service.findByNameOrderByNameAsc(name));
     }
-    @GetMapping("/findByNameOrId")
+    @GetMapping("/findByFoodTypeNameOrId")
     public ResponseEntity<List<FoodType>> findByNameOrId(String name, int id){
         return ResponseEntity.ok(service.findByNameOrIdOrderByName(name, id));
     }
@@ -30,7 +30,7 @@ public class FoodTypeController {
     public ResponseEntity<List<FoodType>> findByFoodType(String type){
         return ResponseEntity.ok(service.findByFoodType(type));
     }
-    @GetMapping("/findByName")
+    @GetMapping("/findByFoodTypePrice")
     public ResponseEntity<List<FoodType>> findByFoodPrice(float price){
         return ResponseEntity.ok(service.findByFoodPrice(price));
     }

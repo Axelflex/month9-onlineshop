@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PlaceController {
     private final PlaceService service;
-    @GetMapping("/findAll")
+    @GetMapping("/findAllPlaces")
     public ResponseEntity<List<Place>> findAll(@RequestParam Pageable pageable){
         return ResponseEntity.ok(service.findAll(pageable));
     }
@@ -30,15 +30,15 @@ public class PlaceController {
                                                 @RequestParam Sort sort){
         return ResponseEntity.ok(service.findPlaceByAddress(address, sort));
     }
-    @GetMapping("/findByFoodTypeName")
+    @GetMapping("/findByPlaceFoodTypeName")
     public ResponseEntity<List<Place>> findByFoodTypeName(@RequestParam String type){
         return ResponseEntity.ok(service.findByFoodTypeName(type));
     }
-    @GetMapping("/findByPrice")
+    @GetMapping("/findByPlacePrice")
     public ResponseEntity<List<Place>> findByPrice(@RequestParam float price){
         return ResponseEntity.ok(service.findByPrice(price));
     }
-    @GetMapping("/{id}")
+    @GetMapping("/Place{id}")
     public ResponseEntity<List<Place>> findById(@PathVariable int id){
         return ResponseEntity.ok(service.findById(id));
     }
