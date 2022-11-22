@@ -8,15 +8,13 @@ import com.example.internetstore.repos.FoodTypeRepo;
 import com.example.internetstore.service.FoodService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController("/food")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class FoodController {
     private final FoodService service;
 

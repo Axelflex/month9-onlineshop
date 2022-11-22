@@ -18,6 +18,7 @@ import java.util.Optional;
 
 @RestController("/users")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class UserController {
     private final UserService service;
     @PostMapping("/register")

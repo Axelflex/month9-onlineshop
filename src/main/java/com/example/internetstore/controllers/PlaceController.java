@@ -3,23 +3,22 @@ package com.example.internetstore.controllers;
 import com.example.internetstore.domain.Place;
 import com.example.internetstore.service.PlaceService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController("/places")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class PlaceController {
     private final PlaceService service;
-    @GetMapping("/findAllPlaces")
-    public ResponseEntity<List<Place>> findAll(@RequestParam Pageable pageable){
-        return ResponseEntity.ok(service.findAll(pageable));
+    @GetMapping("/findAllPlaces/{offset}/{size}")
+    public ResponseEntity<Page<Place>> findAll(@PathVariable int offset, @PathVariable int size){
+        return ResponseEntity.ok(service.findAll(offset, size));
     }
     @GetMapping("/findPlaceByName")
     public ResponseEntity<List<Place>> findPlaceByName(@RequestParam String name){

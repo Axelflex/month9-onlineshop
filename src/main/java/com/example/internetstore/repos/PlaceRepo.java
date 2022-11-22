@@ -10,7 +10,6 @@ import java.util.List;
 
 public interface PlaceRepo extends PagingAndSortingRepository<Place, Long> {
     List<Place> findById(int id);
-    List<Place> findAllBy(Pageable pageable);
     List<Place> findPlaceByName(String name);
     List<Place> findPlaceByAddress(String address, Sort sort);
     @Query("select p from Place p " +

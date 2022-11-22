@@ -3,6 +3,8 @@ package com.example.internetstore.service;
 import com.example.internetstore.domain.Place;
 import com.example.internetstore.repos.PlaceRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
@@ -18,8 +20,8 @@ public class PlaceService {
     public List<Place> findById(int id){
         return placeRepo.findById(id);
     }
-    public List<Place> findAll(Pageable pageable){
-        return placeRepo.findAllBy(pageable);
+    public Page<Place> findAll(int offset, int size){
+        return placeRepo.findAll(PageRequest.of(offset, size));
     }
     public List<Place> findPlaceByName(String name){
         return placeRepo.findPlaceByName(name);

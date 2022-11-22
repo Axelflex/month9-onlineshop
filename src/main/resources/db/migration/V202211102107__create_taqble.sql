@@ -28,7 +28,7 @@ create table foods(
 insert into places ("name", "address", "image") values
     ('Moka Pot', '47 W 13th St, New York, NY 10011, USA', '../img/Moka_Pot.png'),
     ('Sunrise Roast', '20 Cooper Square, New York, NY 10003, USA', '../img/Sunrise_Roast.png'),
-    ('Coffee Bloom', '1 E 2nd St, New York, NY 10003, USA', 'Coffee_Bloom.png'),
+    ('Coffee Bloom', '1 E 2nd St, New York, NY 10003, USA', '../img/Coffee_Bloom.png'),
     ('The Caffeine Fix', '75 3rd Ave, New York, NY 10003, USA', '../img/The_Caffeine_Fix.png'),
     ('French Brew', 'Metrotech Center, Brooklyn, NY 11201, USA', '../img/French_Brew.png');
 insert into food_types ("name", "icon") values
